@@ -1,0 +1,56 @@
+!!! 5
+%html
+  %head
+
+    %meta{'charset' => 'utf-8'}
+    %meta{'http-equiv' => "X-UA-Compatible", 'content' => "IE=edge,chrome=1" }
+    %meta{'name'=>"viewport", 'content' => "width=device-width,initial-scale=1"}
+
+    %title Chatty
+    = stylesheet_link_tag    "backboneApp", :media => "all"
+    =csrf_meta_tags
+  %body
+    %div.navbar.navbar-fixed-top
+      %div.navbar-inner
+        %div.container
+          %a.brand{:href => '#'} Chatty
+
+    %div#main.container
+      %div.row
+        %div.span4
+          %div#users.well.sidebar-nav
+            %ul#user-list.nav.nav-list
+              %li.nav-header
+                Chatty
+              %li.active
+                %a{:href=> "#users"} 
+                  %i.icon-inbox
+                  All Messages
+              %li.nav-header
+                Users
+                (
+                %span#num-users 0
+                )
+
+
+
+        %div#messages.span8
+          %div#messages-inner.row
+
+          %div#input.row
+            %form.well
+              %button{:type => 'submit', :class => 'btn'} Send
+              %input{:type => 'text', :class => 'span6', :placeholder => 'Message...'}
+
+    %div.modal
+
+
+
+    =javascript_include_tag "backboneApp"
+
+      
+
+
+
+
+
