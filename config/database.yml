@@ -11,11 +11,11 @@
 
 development:
   adapter: postgresql
-  database: understoodit
+  database:  
   pool: 5
   timeout: 5000
-  username: understoodit
-  password: test
+  username:  
+  password:  
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
