@@ -3,7 +3,7 @@
 
 For more information see the article explaining the application:
 
-http://liamkaufman.com/blog/2012-02-25-adding_real-time_to_rails_with_socket.IO_nodejs_and_backbonejs_with_demo.html
+http://liamkaufman.com/blog/2012/02/25/adding_real-time_to_rails_with_socket.IO_nodejs_and_backbonejs_with_demo/
 
 Demo: http://node-chatty.herokuapp.com/chatty
 
