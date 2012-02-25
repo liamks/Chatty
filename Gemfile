@@ -8,7 +8,8 @@ gem 'rails', '3.2.1'
 gem 'ejs'
 gem "haml"
 gem 'pg'
-
+gem 'thin'
+gem 'dalli'
 
 # Gems used only for assets and not required
 # in production environments by default.
