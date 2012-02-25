@@ -5,6 +5,13 @@ LoadView = Backbone.View.extend
     "click #done":"done"
     "keypress input": "doneWithEnter"
 
+  initialize: () ->
+    @$el.on 'hidden', (evt) ->
+      name = 'Anonymous' + String((new Date()).getTime() % 1000)
+      # I should have renamed this event to login done
+      # or something more general!
+      app.events.trigger 'screenName-entered', name
+
   done: (evt) ->
     enteredName = @$el.find('input').val() 
     enteredName = "Anonymous" if enteredName is ''
