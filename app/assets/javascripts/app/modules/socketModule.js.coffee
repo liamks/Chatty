@@ -1,6 +1,9 @@
 class SocketModule
   constructor: () ->
     @addHandlers()
+    #for what ever reason usersConnected is called twice
+    # on firefox
+    @usersConnectedFlag = no
 
   addHandlers: () ->
     app.events.on 'connect-info',       @connect
@@ -29,7 +32,9 @@ class SocketModule
     @socket.on 'receieve-message',             @message
 
   usersConnected: (usersConnected) =>
-    app.events.trigger 'users-connected',   usersConnected
+    if not @usersConnectedFlag
+      @usersConnected = yes
+      app.events.trigger 'users-connected',   usersConnected
 
   newUserConnected: (userInfo) =>
     app.events.trigger 'new-user-connected', userInfo

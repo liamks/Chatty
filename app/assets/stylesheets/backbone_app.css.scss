@@ -84,7 +84,6 @@ cursor: pointer;
 filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
 
   display: inline-block;
-  width: 80px;
   text-align: right;
   padding: 5px;
   border: 1px solid #ccc;
@@ -120,7 +119,7 @@ div.message{
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   margin-left: -5px;
-  max-width: 490px;
+  max-width: 400px;
   min-height: 18px;
   vertical-align: middle;
   background: #fff;
