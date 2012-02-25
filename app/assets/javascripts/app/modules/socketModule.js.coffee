@@ -11,14 +11,14 @@ class SocketModule
 
   connect: (info) =>
     @url = info.socketURL
-    @uuid = info.uuid
+    @id = info.id
     @socket = io.connect @url
     @addSocketHandlers()
 
   registerUser: (screenName) =>
     @socket.emit 'new-user',
       screenName: screenName
-      uuid:       @uuid
+      id:       @id
 
   sendMessage: (msgInfo) =>
     @socket.emit 'message', msgInfo
