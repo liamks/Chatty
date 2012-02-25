@@ -2,6 +2,7 @@ LoadView = Backbone.View.extend
   className: 'modal'
 
   events:
+    "keypress input": "doneWithEnter"
     "click #done":"done"
 
   initialize: () ->
@@ -11,6 +12,7 @@ LoadView = Backbone.View.extend
       @done evt
 
   done: (evt) =>
+    
     if not @closedWindow
       @closedWindow = yes
       enteredName = @$el.find('input').val() 
