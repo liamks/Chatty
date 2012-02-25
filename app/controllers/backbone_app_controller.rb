@@ -2,7 +2,7 @@ class BackboneAppController < ApplicationController
   layout 'backboneApp'
   respond_to :html, :json
 	def show
-    response.headers['Cache-Control'] = 'public, max-age=3600' if Rails.env.production?
+    response.headers['Cache-Control'] = 'public, max-age=25300' if Rails.env.production?
   end
 
   def user_info
