@@ -7,7 +7,7 @@ class BackboneAppController < ApplicationController
 
   def user_info
     respond_with({
-        'uuid' => UUIDTools::UUID.random_create.to_s,
+        'id' => UUIDTools::UUID.random_create.to_s,
         'socketURL' => self.get_socket_url
     })
   end

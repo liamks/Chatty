@@ -99,7 +99,7 @@ class UserModule
 
   addHandlers: () ->
     app.events.on 'connect-info', (info) =>
-      @user.set 'uuid', info.uuid
+      @user.id = info.uuid
       @publishUser()
 
     app.events.on 'screenName-entered', (screenName) =>
@@ -113,13 +113,12 @@ class UserModule
       @users.add(usersConnected)
 
     app.events.on 'user-disconnected', (userInfo) =>
-      model = @users.find (m) =>
-        if m.get('uuid') is userInfo.uuid
-          m
+      model = @users.findById userInfo.uuid
       @users.remove(model)
 
+
   publishUser: () ->
-    if @user.get('uuid') isnt '' and @user.get('screenName') isnt 'You'
+    if @user.id isnt undefined and @user.get('screenName') isnt 'You'
       app.events.trigger 'user', @user
 
 userModule = new UserModule()

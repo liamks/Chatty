@@ -55,7 +55,7 @@ MessagesView = Backbone.View.extend
         message.view.show()
     else
       @collection.each (message) ->
-        if message.get('uuid') isnt user.get('uuid')
+        if message.get('userId') isnt user.id
           message.view.hide()
         else
           message.view.show()
@@ -81,7 +81,7 @@ SendMessageView = Backbone.View.extend
     @$input.val('')
 
     app.events.trigger 'send-message'
-      uuid: @user.get 'uuid'
+      userId: @user.id
       screenName: @user.get 'screenName'
       time: (new Date()).getTime()
       message: message
