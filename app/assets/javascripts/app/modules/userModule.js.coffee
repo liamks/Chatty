@@ -2,7 +2,6 @@
 User = Backbone.Model.extend
   defaults:
     screenName: 'You'
-    uuid: ''
     isMe: no
 
   toJSON: () ->
@@ -99,7 +98,7 @@ class UserModule
 
   addHandlers: () ->
     app.events.on 'connect-info', (info) =>
-      @user.id = info.uuid
+      @user.id = info.id
       @publishUser()
 
     app.events.on 'screenName-entered', (screenName) =>
@@ -113,7 +112,7 @@ class UserModule
       @users.add(usersConnected)
 
     app.events.on 'user-disconnected', (userInfo) =>
-      model = @users.findById userInfo.uuid
+      model = @users.get userInfo.id
       @users.remove(model)
 
 
