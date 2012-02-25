@@ -3,21 +3,22 @@ LoadView = Backbone.View.extend
 
   events:
     "click #done":"done"
-    "keypress input": "doneWithEnter"
 
   initialize: () ->
-    @$el.on 'hidden', (evt) ->
-      name = 'Anonymous' + String((new Date()).getTime() % 1000)
-      # I should have renamed this event to login done
-      # or something more general!
-      app.events.trigger 'screenName-entered', name
+    @closedWindow = no
 
-  done: (evt) ->
-    enteredName = @$el.find('input').val() 
-    enteredName = "Anonymous" if enteredName is ''
-    app.events.trigger 'screenName-entered', enteredName
-    @$el.modal 'hide'
-    evt.preventDefault()
+    @$el.on 'hidden', (evt) =>
+      @done evt
+
+  done: (evt) =>
+    if not @closedWindow
+      @closedWindow = yes
+      enteredName = @$el.find('input').val() 
+      anonName = 'Anonymous' + String((new Date()).getTime() % 1000)
+      enteredName = anonName if enteredName is ''
+      app.events.trigger 'screenName-entered', enteredName
+      @$el.modal 'hide'
+      evt.preventDefault()
 
   doneWithEnter: (evt) ->
     if evt.keyCode is 13
