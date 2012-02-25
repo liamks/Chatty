@@ -11,7 +11,7 @@ LoadView = Backbone.View.extend
     @$el.on 'hidden', (evt) =>
       @done evt
 
-  done: (evt) =>
+  done: (evt) ->
     
     if not @closedWindow
       @closedWindow = yes
@@ -22,7 +22,7 @@ LoadView = Backbone.View.extend
       @$el.modal 'hide'
       evt.preventDefault()
 
-  doneWithEnter: (evt) =>
+  doneWithEnter: (evt) ->
     if evt.keyCode is 13
       @done evt
 
